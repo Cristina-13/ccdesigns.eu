@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://ccdesigns.eu/index.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ccdesigns.eu/sobre-mi.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ccdesigns.eu/blog/index.html</loc>
+    <lastmod>2026-03-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ccdesigns.eu/blog/aeo-respuestas-ia.html</loc>
+    <lastmod>2026-03-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ccdesigns.eu/blog/psicologia-color.html</loc>
+    <lastmod>2026-03-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ccdesigns.eu/blog/mantenimiento-web-guia.html</loc>
+    <lastmod>2026-03-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ccdesigns.eu/blog/diseno-web-barcelona.html</loc>
+    <lastmod>2026-02-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ccdesigns.eu/blog/seo-local-barcelona.html</loc>
+    <lastmod>2026-02-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  
+  
+  <url>
+    <loc>https://ccdesigns.eu/blog/en/aeo-ai-optimization.html</loc>
+    <lastmod>2026-03-30</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ccdesigns.eu/blog/en/color-psychology.html</loc>
+    <lastmod>2026-03-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ccdesigns.eu/blog/en/web-maintenance-guide.html</loc>
+    <lastmod>2026-03-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ccdesigns.eu/blog/en/web-design-barcelona.html</loc>
+    <lastmod>2026-02-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ccdesigns.eu/blog/en/local-seo-barcelona.html</loc>
+    <lastmod>2026-02-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ccdesigns.eu/aviso-legal.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://ccdesigns.eu/privacidad.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://ccdesigns.eu/cookies.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>

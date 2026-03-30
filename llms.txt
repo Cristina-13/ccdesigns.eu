@@ -1,0 +1,25 @@
+# CC Designs - Diseño Web y SEO Estratégico en Barcelona
+
+> Freelance especializada en la creación de sitios web de alto rendimiento y estrategias de posicionamiento orgánico para pymes y autónomos.
+
+## Información Principal
+- **Titular:** Cristina Caballé.
+- **Ubicación:** Barcelona, España (Servicios con enfoque en SEO Local y Área de Servicio).
+- **Perfiles Oficiales:** [LinkedIn](https://www.linkedin.com/in/cristina-c-635311378)
+- **Enfoque:** Combinación de base técnica (sistemas) con diseño creativo UI/UX para maximizar la conversión. Especialista en **AEO (Answer Engine Optimization)** y **GEO (Generative Engine Optimization)**.
+
+## Servicios
+- **Diseño Web UI/UX:** Creación de interfaces personalizadas con WordPress, Elementor Pro y tecnologías estándar (HTML/CSS/JS).
+- **SEO y Copywriting:** Estrategias de posicionamiento local, auditorías técnicas y redacción estratégica. Más de 120 artículos optimizados publicados.
+- **Mantenimiento Web:** Soporte continuo, actualizaciones de seguridad, backups y optimización de velocidad (WPO).
+- **Identidad Visual:** Branding corporativo y manuales de identidad.
+
+## Autoridad y Metodología (E-E-A-T)
+- **Experiencia en Agencia:** Trayectoria en el sector técnico de agencias en Barcelona.
+- **Optimización para IA:** Contenido web estructurado mediante Schema Markup (JSON-LD) para facilitar la indexación en motores de respuesta.
+- **Transparencia:** Procesos basados en consultoría previa y análisis de datos de usuario.
+
+## Contacto y Canales Oficiales
+- **Web:** https://ccdesigns.eu
+- **Email:** ccdesignseu@outlook.com
+- **WhatsApp:** https://wa.me/34677295718
