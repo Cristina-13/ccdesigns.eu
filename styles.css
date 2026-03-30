@@ -516,6 +516,7 @@ body {
     border-top: 1px solid var(--glass-border);
     border-bottom: 1px solid var(--glass-border);
     margin-top: 40px;
+    
 }
 
 .cta-content {
@@ -526,6 +527,7 @@ body {
 .cta-content .section-title {
     font-size: 2.5rem;
     margin-bottom: 15px;
+    line-height: 0.9;
 }
 
 .cta-actions {
