@@ -462,6 +462,54 @@
     </div>
 
     <script src="../main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const blogGrid = document.getElementById('blog-grid');
+            const filterBg = document.getElementById('filter-bg');
+            const switcher = document.getElementById('blog-filter-switcher');
+            const buttons = document.querySelectorAll('.filter-btn');
+            const posts = document.querySelectorAll('.post-card');
+
+            if (!blogGrid || !filterBg || !switcher) return;
+
+            function moveBurbuja(btn) {
+                if (!btn) return;
+                const left = btn.offsetLeft;
+                const width = btn.offsetWidth;
+                filterBg.style.width = `${width}px`;
+                filterBg.style.transform = `translateX(${left}px)`;
+            }
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    moveBurbuja(button);
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    const filter = button.getAttribute('data-filter');
+                    posts.forEach(post => {
+                        post.style.opacity = '0';
+                        setTimeout(() => {
+                            if (filter === 'all' || post.getAttribute('data-category') === filter) {
+                                post.style.display = 'flex';
+                                setTimeout(() => post.style.opacity = '1', 10);
+                            } else {
+                                post.style.display = 'none';
+                            }
+                        }, 300);
+                    });
+                });
+            });
+
+            const initBlog = () => {
+                const activeBtn = switcher.querySelector('.filter-btn.active');
+                if (activeBtn) moveBurbuja(activeBtn);
+            };
+
+            setTimeout(initBlog, 150);
+            window.addEventListener('resize', initBlog);
+        });
+    </script>
 </body>
 
 </html>
