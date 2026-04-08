@@ -748,122 +748,85 @@ document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
 
 
-//PROYECTOS SLIDER
+// PROYECTOS SLIDER
 document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('sliderTrack');
-    let slides = Array.from(document.querySelectorAll('.slide'));
+    const slides = Array.from(document.querySelectorAll('.slide'));
     const nextBtn = document.querySelector('.next');
     const prevBtn = document.querySelector('.prev');
 
-    if (!track || !nextBtn || !prevBtn) return;
+    if (!track || !nextBtn || !prevBtn || slides.length === 0) return;
 
-    const numClones = 3;
-    for (let i = 0; i < numClones; i++) {
-        const startClone = slides[i].cloneNode(true);
-        const endClone = slides[slides.length - 1 - i].cloneNode(true);
-        track.appendChild(startClone);
-        track.insertBefore(endClone, track.firstChild);
-    }
-
-    let allSlides = document.querySelectorAll('.slide');
-    let currentIndex = numClones;
+    let currentIndex = 0;
     let isTransitioning = false;
 
-    function updateSlider(instant = false) {
-        if (instant) {
-            track.style.transition = 'none';
-        } else {
-            track.style.transition = 'transform 0.8s cubic-bezier(0.2, 1, 0.3, 1)';
-        }
-
-        allSlides.forEach((slide, index) => {
-            slide.classList.remove('active', 'side');
+    function updateSlider() {
+        slides.forEach((slide, index) => {
+            slide.classList.remove('active', 'side', 'show-info');
             if (index === currentIndex) {
                 slide.classList.add('active');
             } else {
                 slide.classList.add('side');
-                slide.classList.remove('show-info');
             }
         });
 
-        const activeSlide = allSlides[currentIndex];
+        const activeSlide = slides[currentIndex];
         const slideWidth = activeSlide.offsetWidth;
         const style = window.getComputedStyle(activeSlide);
         const marginLeft = parseFloat(style.marginLeft) || 0;
         const marginRight = parseFloat(style.marginRight) || 0;
-
         const totalBlockWidth = slideWidth + marginLeft + marginRight;
 
         const windowCenter = window.innerWidth / 2;
-
         const offset = windowCenter - (currentIndex * totalBlockWidth) - (totalBlockWidth / 2);
 
+        track.style.transition = 'transform 0.8s cubic-bezier(0.2, 1, 0.3, 1)';
         track.style.transform = `translateX(${offset}px)`;
+        
+        prevBtn.style.opacity = currentIndex === 0 ? '0.3' : '1';
+        nextBtn.style.opacity = currentIndex === slides.length - 1 ? '0.3' : '1';
     }
 
-    track.addEventListener('transitionend', () => {
-        isTransitioning = false;
-        if (currentIndex >= allSlides.length - numClones) {
-            currentIndex = numClones;
-            updateSlider(true);
-        }
-        if (currentIndex < numClones) {
-            currentIndex = allSlides.length - numClones - 1;
-            updateSlider(true);
-        }
-    });
-
-    //BOTONES
+    // Botones
     nextBtn.addEventListener('click', () => {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        currentIndex++;
-        updateSlider();
+        if (currentIndex < slides.length - 1) {
+            currentIndex++;
+            updateSlider();
+        }
     });
 
     prevBtn.addEventListener('click', () => {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        currentIndex--;
-        updateSlider();
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+        }
     });
 
-    //SWIPE & CLIC
-    let touchStartX = 0;
-    let isSwipe = false;
-
-    track.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-        isSwipe = false;
-    }, { passive: true });
-
-    track.addEventListener('touchmove', () => {
-        isSwipe = true;
-    }, { passive: true });
-
-    track.addEventListener('touchend', (e) => {
-        if (!isSwipe) return;
-        const touchEndX = e.changedTouches[0].screenX;
-        if (touchStartX - touchEndX > 50) nextBtn.click();
-        else if (touchEndX - touchStartX > 50) prevBtn.click();
-    });
-
-    allSlides.forEach((slide, index) => {
-        slide.addEventListener('click', (e) => {
-            if (isTransitioning || isSwipe) return;
-
+    slides.forEach((slide, index) => {
+        slide.addEventListener('click', () => {
             if (index === currentIndex) {
                 slide.classList.toggle('show-info');
             } else {
-                isTransitioning = true;
                 currentIndex = index;
                 updateSlider();
             }
         });
     });
 
-    window.addEventListener('resize', () => updateSlider(true));
-    setTimeout(() => updateSlider(true), 150);
+    //(Swipe)
+    let touchStartX = 0;
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    track.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].screenX;
+        if (touchStartX - touchEndX > 50) nextBtn.click();
+        else if (touchEndX - touchStartX > 50) prevBtn.click();
+    });
+
+    window.addEventListener('resize', updateSlider);
+    setTimeout(updateSlider, 150);
 });
 
 
@@ -887,62 +850,6 @@ if (whatsappPullout) {
         }
     });
 }
-
-
-//CATEGORIAS BLOG
-document.addEventListener('DOMContentLoaded', () => {
-    const blogGrid = document.getElementById('blog-grid');
-    const filterBg = document.getElementById('filter-bg');
-    const switcher = document.getElementById('blog-filter-switcher');
-
-    if (!blogGrid || !filterBg || !switcher) return;
-
-    const buttons = document.querySelectorAll('.filter-btn');
-    const posts = document.querySelectorAll('.post-card');
-
-    function moveBurbuja(btn) {
-        if (!btn) return;
-        const left = btn.offsetLeft;
-        const width = btn.offsetWidth;
-
-        filterBg.style.width = `${width}px`;
-        filterBg.style.transform = `translateX(${left}px)`;
-    }
-
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            moveBurbuja(button);
-
-            buttons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-
-            const filter = button.getAttribute('data-filter');
-
-            posts.forEach(post => {
-                post.style.opacity = '0';
-
-                setTimeout(() => {
-                    if (filter === 'all' || post.getAttribute('data-category') === filter) {
-                        post.style.display = 'flex';
-                        setTimeout(() => post.style.opacity = '1', 10);
-                    } else {
-                        post.style.display = 'none';
-                    }
-                }, 300);
-            });
-        });
-    });
-
-    const initBlog = () => {
-        const activeBtn = switcher.querySelector('.filter-btn.active');
-        moveBurbuja(activeBtn);
-    };
-
-    setTimeout(initBlog, 100);
-
-    window.addEventListener('resize', initBlog);
-});
-
 
 document.addEventListener('DOMContentLoaded', () => {
     const banner = document.getElementById('cookie-banner');
