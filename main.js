@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const spaContent = document.getElementById('spa-content');
 
     //DICCIONARIO DE TRADUCCIONES 
-    const translations = {
+    window.translations = {
         es: {
             "nav-servicios": "SERVICIOS",
             "nav-proyectos": "PROYECTOS",
@@ -168,6 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
             "blog-post4-p": "¿Qué transmiten los colores de tu web? Descubre cómo la psicología del color transforma la experiencia de tus visitas.",
             "blog-post5-t": "AEO y GEO: Los pilares innegociables de la autoridad digital",
             "blog-post5-p": "Optimización para IA: Cómo adaptar tu contenido para que los motores de respuesta (AEO) y generativos (GEO) te recomienden.",
+            "blog-post6-t": "¿Qué chatbot necesita tu empresa en 2026?",
+            "blog-post6-p": "Descubre cómo elegir el chatbot ideal para mejorar la atención al cliente y reforzar la autoridad de tu marca en cada interacción.",
             //AVISO LEGAL
             "legal-title": "Aviso Legal",
             "legal-tagline": "CONDICIONES GENERALES DE USO Y CUMPLIMIENTO LSSI-CE",
@@ -297,11 +299,12 @@ document.addEventListener('DOMContentLoaded', () => {
             "cookies-manage-title": "Deshabilitar, rechazar y eliminar cookies",
             "cookies-manage-p1": "El Usuario puede deshabilitar, rechazar y eliminar las cookies instaladas en su dispositivo mediante la configuración de su navegador (Chrome, Firefox, Safari, Explorer, etc.). Si rechaza el uso de cookies, podrá seguir usando el Sitio Web, si bien podrá tener limitada la utilización de algunas de las prestaciones del mismo.",
             //ARTICULOS
-            "link-seo-post": "seo-local-barcelona.html",
-            "link-design-post": "diseno-web-barcelona.html",
-            "link-maintenance-post": "mantenimiento-web-guia.html",
-            "link-color-post": "psicologia-color.html",
+            "link-chatbots-post": "chatbot-empresa-2026.html",
             "link-aeo-post": "aeo-respuestas-ia.html",
+            "link-color-post": "psicologia-color.html",
+            "link-maintenance-post": "mantenimiento-web-guia.html",
+            "link-design-post": "diseno-web-barcelona.html",
+            "link-seo-post": "seo-local-barcelona.html",
 
         },
         en: {
@@ -457,10 +460,12 @@ document.addEventListener('DOMContentLoaded', () => {
             "blog-post2-p": "Is your website working as hard as you are? Discover why professional web design is the key to increasing your sales.",
             "blog-post3-t": "Web maintenance: 10-step guide for your business",
             "blog-post3-p": "Learn how to avoid technical errors and security flaws with this guide designed to keep your business running fast.",
-            "blog-post4-t": "Color Psychology in UX/UI: How it influences user behavior",
+            "blog-post4-t": "Color psychology in UX/UI: How it influences user behavior",
             "blog-post4-p": "What do your website's colors evoke? Discover how color psychology shapes the user experience.",
-            "blog-post5-t": "Why AEO and GEO are Non-Negotiable for Digital Authority",
-            "blog-post5-p": "AI Optimization: How to adapt your content so Answer Engines (AEO) and Generative Engines (GEO) recommend you.",
+            "blog-post5-t": "Why AEO and GEO are non-negotiable for digital authority",
+            "blog-post5-p": "AI optimization: How to adapt your content so answer engines (AEO) and generative engines (GEO) recommend you.",
+            "blog-post6-t": "Choosing the right chatbot for your business in 2026",
+            "blog-post6-p": "Discover how to choose the perfect chatbot to enhance customer support and strengthen your brand authority.",
             //AVISO-LEGAL
             "legal-title": "Legal Notice",
             "legal-tagline": "GENERAL CONDITIONS OF USE AND LSSI-CE COMPLIANCE",
@@ -588,11 +593,12 @@ document.addEventListener('DOMContentLoaded', () => {
             "cookies-manage-title": "Disable, reject and delete cookies",
             "cookies-manage-p1": "The User can disable, reject and delete the cookies installed on their device through their browser settings (Chrome, Firefox, Safari, Explorer, etc.). If the User rejects the use of cookies, they may continue to use the Website, although the use of some of its features may be limited.",
             //ARTICULOS
-            "link-seo-post": "en/local-seo-barcelona.html",
-            "link-design-post": "en/web-design-barcelona.html",
-            "link-maintenance-post": "en/web-maintenance-guide.html",
-            "link-color-post": "en/color-psychology.html",
+            "link-chatbots-post": "en/business-chatbot-2026.html",
             "link-aeo-post": "en/aeo-ai-optimization.html",
+            "link-color-post": "en/color-psychology.html",
+            "link-maintenance-post": "en/web-maintenance-guide.html",
+            "link-design-post": "en/web-design-barcelona.html",
+            "link-seo-post": "en/local-seo-barcelona.html",
         }
     };
 
@@ -782,7 +788,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         track.style.transition = 'transform 0.8s cubic-bezier(0.2, 1, 0.3, 1)';
         track.style.transform = `translateX(${offset}px)`;
-        
+
         prevBtn.style.opacity = currentIndex === 0 ? '0.3' : '1';
         nextBtn.style.opacity = currentIndex === slides.length - 1 ? '0.3' : '1';
     }
