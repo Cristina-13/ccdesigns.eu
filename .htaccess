@@ -1,10 +1,20 @@
 <Files ".htaccess">
   Require all denied
 </Files>
+
 ServerSignature Off
 
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/x-javascript application/rss+xml application/atom+xml application/rdf+xml image/svg+xml
+
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/xml application/xhtml+xml application/rss+xml
+  AddOutputFilterByType DEFLATE application/json application/ld+json
+  AddOutputFilterByType DEFLATE image/svg+xml font/woff2
+  
+  BrowserMatch ^Mozilla/4 gzip-only-text/html
+  BrowserMatch ^Mozilla/4\.0[678] no-gzip
+  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
 </IfModule>
 
 <IfModule mod_expires.c>
@@ -23,11 +33,11 @@ ServerSignature Off
 
   ExpiresByType text/css "access plus 1 month"
   ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
 </IfModule>
 
 <IfModule mod_headers.c>
-  Header unset Last-Modified
-  <FilesMatch "\.(ico|pdf|jpg|jpeg|png|gif|webp|js|css|svg)$">
+  <FilesMatch "\.(ico|pdf|jpg|jpeg|png|gif|webp|js|css|svg|woff2)$">
     Header set Cache-Control "max-age=31536000, public"
   </FilesMatch>
 </IfModule>
