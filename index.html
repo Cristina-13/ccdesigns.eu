@@ -907,21 +907,17 @@ body {
 
     <script src="main.js" defer></script>
 
-    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-PPSQ4EHRWZ"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPSQ4EHRWZ"></script>
     <script>
-        window.addEventListener('load', function() {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          
-          gtag('consent', 'default', {
-              'ad_storage': 'denied',
-              'analytics_storage': 'denied'
-          });
-  
-          gtag('config', 'G-PPSQ4EHRWZ');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied'
         });
-      </script>
+        gtag('js', new Date());
+        gtag('config', 'G-PPSQ4EHRWZ');
+    </script>
 </body>
 
 </html>
